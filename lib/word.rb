@@ -19,6 +19,7 @@ class Word
     @@words.values
   end
   
-  # def ==(other_words)
-  #   self.name.eql?(other_words.name)
+  def ==(other_words)
+    self.name() == other_words.name()
   end
+end
