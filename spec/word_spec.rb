@@ -1,19 +1,19 @@
 require('word')
 require('rspec')
 
-describe 'Word' do
+describe '#Word' do
   
-  # before(:each) do
-  #   Album.clear()
-  # end
+  before(:each) do
+    Word.clear()
+  end
 
 describe('#save') do
     it("saves a word") do
-      # words = Word.new("Grant", nil)
-      # words.save()
-      # words2 = Word.new("Bill", nil) 
-      # words2.save()
-      # expect(Word.all).to(eq([words, words2]))
+      words = Word.new("Grant", nil)
+      words.save()
+      words2 = Word.new("Bill", nil) 
+      words2.save()
+      expect(Word.all).to(eq([words, words2]))
     end
   end
 
@@ -28,6 +28,17 @@ describe('#==') do
     words = Word.new('dog', nil)
     words2 = Word.new('dog', nil)
     expect(words).to(eq(words2))
+  end
+end
+
+describe('.clear') do
+  it('clear all words') do
+    words = Word.new("Grant", nil)
+    words.save()
+    words2 = Word.new("Bill", nil) 
+    words2.save()
+    Word.clear()
+    expect(Word.all).to(eq([]))
   end
 end
 
