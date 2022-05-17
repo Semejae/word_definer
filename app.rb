@@ -11,31 +11,44 @@ get('/') do
 end
 
 get('/word') do
-  "This route will show a list of all words."
+  @word = Word.all
+  erb(:words)
 end
 
 get('/word/new') do
-  "This will take us to a page with a form for adding a new words."
+  erb(:new_word)
 end
 
 get('/word/:id') do
-  "This route will show a specific words based on its ID. The value of ID here is #{params[:id]}."
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
 end
 
 post('/word') do
-  "This route will add an words to our list of words. We can't access this by typing in the URL. In a future lesson, we will use a form that specifies a POST action to reach this route."
+  name = params[:word_name]
+  name = Word.new(name, nil)
+  name.save()
+  @word = Word.all()
+  erb(:words)
 end
 
 get('/word/:id/edit') do
-  "This will take us to a page with a form for updating an words with an ID of #{params[:id]}."
+  @word = Word.find(params[:id].to_i())
+  erb(:edit_word)
 end
 
 patch('/word/:id') do
-  "This route will update an words. We can't reach it with a URL. In a future lesson, we will use a form that specifies a PATCH action to reach this route."
+  @word = Word.find(params[:id].to_i())
+  @word.update(params[:name])
+  @word = Word.all
+  erb(:Words)
 end
 
 delete('/word/:id') do
-  "This route will delete an words. We can't reach it with a URL. In a future lesson, we will use a delete button that specifies a DELETE action to reach this route."
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @word = Word.all
+  erb(:words)
 end
 
 get('/custom_route') do
