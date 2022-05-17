@@ -1,5 +1,6 @@
 require('word')
 require('rspec')
+require('pry')
 
 describe '#Word' do
   
@@ -78,11 +79,6 @@ describe('#delete') do
       expect(Word.all).to(eq([words2]))
     end
   end
-
-  
-
-
-
 
 end
 
