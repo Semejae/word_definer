@@ -3,8 +3,6 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-
-
 describe('Word paths') do
 
   before :each do
