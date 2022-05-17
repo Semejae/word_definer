@@ -50,4 +50,14 @@ describe '#definition' do
     end
   end
 
+  describe('.find') do
+    it("finds a song by id") do
+      definition = Definition.new("Giant", @word.id, nil)
+      definition.save()
+      definition2 = Definition.new("Small", @word.id, nil)
+      definition2.save()
+      expect(Definition.find(definition.id)).to(eq(definition))
+    end
+  end
+
 end
