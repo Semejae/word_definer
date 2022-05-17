@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')
 require('pry')
+require('./lib/definition')
 also_reload('lib/**/*.rb')
 
 
@@ -51,6 +52,30 @@ delete('/word/:id') do
   erb(:words)
 end
 
-get('/custom_route') do
-  "We can even create custom routes, but we should only do this when needed."
+get('/word/:id/definition/:definition_id') do
+  @definition = Definition.find(params[:definition_id].to_i())
+  erb(:definition)
+end
+
+post('/word/:id/definition') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.new(params[:song_name], @word.id, nil)
+  definition.save()
+  erb(:word)
+end
+
+
+patch('/word/:id/definition/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:definition_id].to_i())
+  definition.update(params[:name], @word.id)
+  erb(:word)
+end
+
+
+delete('/word/:id/definition/:word_id') do
+  definition = Definition.find(params[:definition_id].to_i())
+  definition.delete
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
 end
