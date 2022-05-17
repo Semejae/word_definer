@@ -32,4 +32,10 @@ class Definition
     @@definition[id]
   end
 
+  def update(name, word_id)
+    self.name = name
+    self.word_id = word_id
+    @@definition[self.id] = Definition.new(self.name, self.word_id, self.id)
+  end
+
 end
