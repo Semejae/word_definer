@@ -52,6 +52,15 @@ describe('.find') do
   end
 end 
 
+describe('#update') do
+  it('updates an words by id') do
+    words = Word.new('Grant', nil)
+    words.save()
+    words.update('boby')
+    expect(words.name).to(eq('Grant'))
+  end
+end
+
 #   describe('#initialize') do
 #     it('it will recongnize name and id') do
 #       words = Word.new('tim')
