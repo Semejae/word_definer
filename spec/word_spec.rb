@@ -7,6 +7,13 @@ describe '#Word' do
     Word.clear()
   end
 
+describe('#initialize') do
+    it('it will recongnize name and id') do
+      words = Word.new('Grant', nil)
+    expect(words.name).to(eq("Grant"))
+  end
+end
+
 describe('#save') do
     it("saves a word") do
       words = Word.new("Grant", nil)
@@ -57,7 +64,7 @@ describe('#update') do
     words = Word.new('Grant', nil)
     words.save()
     words.update('boby')
-    expect(words.name).to(eq('Grant'))
+    expect(words.name).to(eq('boby'))
   end
 end
 
@@ -71,14 +78,8 @@ describe('#delete') do
       expect(Word.all).to(eq([words2]))
     end
   end
-#   describe('#initialize') do
-#     it('it will recongnize name and id') do
-#       words = Word.new('tim')
-#       words = Word.new(nil)
-#     expect(Word.new()).to(eq('tim'))
-#     expect(Word.new()).to(eq(1))
-#   end
-# end
+
+  
 
 
 

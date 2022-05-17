@@ -1,9 +1,13 @@
 require('sinatra')
 require('sinatra/reloader')
+require('./lib/word')
+require('pry')
 also_reload('lib/**/*.rb')
 
+
 get('/') do
-  "This will be our home page. '/' is always the root route in a Sinatra application."
+  @word = Word.all
+  erb(:words)
 end
 
 get('/word') do

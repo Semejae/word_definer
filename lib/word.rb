@@ -32,8 +32,8 @@ class Word
     @@words[id]
   end
 
-  def update(name)
-    @words = name
+  def update(new_name)
+    @name = new_name
   end
 
   def delete
