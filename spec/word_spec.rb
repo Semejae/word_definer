@@ -61,6 +61,16 @@ describe('#update') do
   end
 end
 
+describe('#delete') do
+    it("deletes an album by id") do
+      words = Word.new("Grant", nil)
+      words.save()
+      words2 = Word.new("Bill", nil) 
+      words2.save()
+      words.delete()
+      expect(Word.all).to(eq([words2]))
+    end
+  end
 #   describe('#initialize') do
 #     it('it will recongnize name and id') do
 #       words = Word.new('tim')
