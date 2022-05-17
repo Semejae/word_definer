@@ -70,7 +70,7 @@ describe '#definition' do
   end
 
   describe('#delete') do
-    it("deletes an song by id") do
+    it("deletes an definition by id") do
       definition = Definition.new("Giant", @word.id, nil)
       definition.save()
       definition2 = Definition.new("Small", @word.id, nil)
