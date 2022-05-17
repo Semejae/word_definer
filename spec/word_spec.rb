@@ -80,5 +80,18 @@ describe('#delete') do
     end
   end
 
+  describe('#definition') do
+  it("returns an word's definition") do
+    Definition.clear()
+    word = Word.new("grant", nil)
+    word.save()
+    definition = Definition.new("big", word.id, nil)
+    definition.save()
+    definition2 = Definition.new("small", word.id, nil)
+    definition2.save()
+    expect(word.definition).to(eq([definition, definition2]))
+  end
+end
+
 end
 

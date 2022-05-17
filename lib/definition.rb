@@ -42,4 +42,18 @@ class Definition
     @@definition.delete(self.id)
   end
 
+  def self.find_by_word(word_id)
+    definitions = []
+    @@definition.values.each do |definition|
+      if definition.word_id == word_id
+        definitions.push(definition)
+      end
+    end
+    definitions
+  end
+
+  def album
+    Word.find(self.word_id)
+  end
+
 end

@@ -80,4 +80,16 @@ describe '#definition' do
     end
   end
 
+  describe('.find_by_word') do
+    it("finds definition for an word") do
+      words2 = Word.new("grant", nil)
+      words2.save
+      definition = Definition.new("big", @word.id, nil)
+      definition.save()
+      definition2 = Definition.new("small", words2.id , nil)
+      definition2.save()
+      expect(Definition.find_by_word(words2.id)).to(eq([definition2]))
+    end
+  end
+
 end
