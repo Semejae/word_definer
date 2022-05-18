@@ -27,10 +27,10 @@ describe('update a definition path', {:type => :feature}) do
     word.save
     visit('/word')
     click_on('Giant')
-    click_on('Edit word')
-    fill_in('name', :with => 'Small')
-    click_on('Update')
-    expect(page).to have_content('Small')
+    click_on('is a person')
+    fill_in('name', :with => 'is not a person')
+    click_on('Update definition')
+    expect(page).to have_content('is not a person')
   end
 end
   
