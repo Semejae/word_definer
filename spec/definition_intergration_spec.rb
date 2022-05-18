@@ -21,18 +21,18 @@ describe('create a definition for word path',{:type => :feature}) do
   end
 end
   
-#   describe('update a word path', {:type => :feature}) do
-#     it('updates a word and returns to page') do
-#       word = Word.new('Giant',nil)
-#       word.save
-#       visit('/word')
-#       click_on('Giant')
-#       click_on('Edit word')
-#       fill_in('name', :with => 'Small')
-#       click_on('Update')
-#       expect(page).to have_content('Small')
-#     end
-#   end
+describe('update a definition path', {:type => :feature}) do
+  it('updates a definition and returns to page') do
+    word = Word.new('Giant',nil)
+    word.save
+    visit('/word')
+    click_on('Giant')
+    click_on('Edit word')
+    fill_in('name', :with => 'Small')
+    click_on('Update')
+    expect(page).to have_content('Small')
+  end
+end
   
 #   describe('delete a word path', {:type => :feature}) do
 #     it('deletes a word and returns to the words page') do
