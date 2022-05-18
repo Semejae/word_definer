@@ -34,16 +34,18 @@ describe('update a definition path', {:type => :feature}) do
   end
 end
   
-#   describe('delete a word path', {:type => :feature}) do
-#     it('deletes a word and returns to the words page') do
-#       word = Word.new("Giant", nil)
-#       word.save
-#       visit('/word') 
-#       click_on("Giant")
-#       click_on("Edit word")
-#       click_on("Delete word")
-#       expect(page).to have_no_content("Giant")
-#     end
-#   end
+describe('delete a definition path', {:type => :feature}) do
+  it('deletes a definition and returns to the words page') do
+    word = Word.new("Giant", nil)
+    word.save
+    visit('/word') 
+    click_on("Giant")
+    fill_in('definition_name', :with => 'is a person')
+    click_on('Add definition')
+    click_on("is a person")
+    click_on("Delete definition")
+    expect(page).to have_no_content("is a person")
+  end
+end
 
 end
