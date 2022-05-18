@@ -21,7 +21,7 @@ describe('Word paths') do
   
   describe('update a word path', {:type => :feature}) do
     it('updates a word and returns to page') do
-      word = Word.new('Giant',nil)
+      word = Word.new("Giant", nil)
       word.save
       visit('/word')
       click_on('Giant')
